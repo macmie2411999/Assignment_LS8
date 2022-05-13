@@ -25,15 +25,16 @@ public class LoginServlet extends HttpServlet {
         Client client = clientModel.getClient(email, password);
 
         HttpSession session = request.getSession();
-        session.setMaxInactiveInterval(600);
+        session.setMaxInactiveInterval(6000);
         if(client != null){
+//            System.out.println("Client is created!");
             session.setAttribute(Constant.SESSION_FULLNAME_CLIENT, client.getFullName());
             session.setAttribute(Constant.SESSION_EMAIL_CLIENT, client.getEmail());
             session.setAttribute(Constant.SESSION_PASSWORD_CLIENT, client.getPassword());
             session.setAttribute(Constant.MESSAGE_IN_JSP, Constant.SESSION_SUCCESS_LOGIN);
-//            response.sendRedirect(request.getContextPath() + "/show");
+            response.sendRedirect(request.getContextPath() + "/show");
         } else{
-            session.setAttribute(Constant.MESSAGE_IN_JSP, Constant.SESSION_FAILED_LOGIN);
+            request.setAttribute(Constant.MESSAGE_IN_JSP, Constant.SESSION_FAILED_LOGIN);
             RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
             dispatcher.forward(request, response);
         }

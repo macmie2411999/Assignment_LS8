@@ -7,4 +7,5 @@ public class Constant {
     public static final String SESSION_FAILED_LOGIN = "Email/Password is Invalid!";
     public static final String SESSION_SUCCESS_LOGIN = "Email and Password are Okay!";
     public static final String MESSAGE_IN_JSP = "Message";
+
 }

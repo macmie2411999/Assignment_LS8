@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.example.assignment_ls8.common.Constant" %><%--
   Created by IntelliJ IDEA.
   User: macmie
   Date: 13/05/2022
@@ -44,8 +44,8 @@
                 <div class="pass-link">
                     <%
                         String message = "";
-                        if(session.getAttribute("Message") != null){
-                            message = (String) session.getAttribute("Message");
+                        if(request.getAttribute(Constant.MESSAGE_IN_JSP) != null){
+                            message = (String) request.getAttribute(Constant.MESSAGE_IN_JSP);
                         }
                     %>
                     <a><%= message%></a>
